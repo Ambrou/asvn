@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'front',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,3 +83,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 APPEND_SLASH = True  # Ajoute un slash en fin d'URL
+
+
+TEMPLATE_DIRS = (
+	os.path.join(BASE_DIR, 'front/templates')
+)
