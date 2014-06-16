@@ -2,15 +2,14 @@
 from django import forms
 
 class CreerDepotForm(forms.Form):
-    sujet = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-    envoyeur = forms.EmailField(label=u"Votre adresse mail")
-    renvoi = forms.BooleanField(help_text=u"Cochez si vous souhaitez obtenir une copie du mail envoyé.", required=False)
+    nomDepot = forms.CharField()
 
 	
-def clean_message(self):
-    message = self.cleaned_data['message']
-    if "pizza" in message:
-        raise forms.ValidationError("On ne veut pas entendre parler de pizza !")
+    def clean_nomDepot(self):
+        nomDepot = self.cleaned_data['nomDepot']
+        if len(nomDepot) > 100:
+            raise forms.ValidationError("Trop long !")
+        elif len(nomDepot) <= 0:
+            raise forms.ValidationError("Trop court !")
 
-    return message  # Ne pas oublier de renvoyer le contenu du champ traité
+        return nomDepot

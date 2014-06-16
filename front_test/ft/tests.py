@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 browser = webdriver.Firefox()
-browser.get('http://localhost:8000/')
+browser.get('http://localhost:8000/creerdepot')
 
 body = browser.find_element_by_tag_name('body')
 assert 'Django' in body.text
