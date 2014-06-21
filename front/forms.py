@@ -2,14 +2,12 @@
 from django import forms
 
 class CreerDepotForm(forms.Form):
-    nomDepot = forms.CharField()
+    nomDepot = forms.CharField(required=False, label='Nom du dépôt')
 
 	
     def clean_nomDepot(self):
         nomDepot = self.cleaned_data['nomDepot']
-        if len(nomDepot) > 100:
-            raise forms.ValidationError("Trop long !")
-        elif len(nomDepot) <= 0:
-            raise forms.ValidationError("Trop court !")
+        if len(nomDepot) <= 0:
+            raise forms.ValidationError("le nom du dépôt ne doit pas être vide")
 
         return nomDepot
