@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic.edit import FormView
 from front.forms import CreerDepotForm
 
 # def creerDepot(request):
@@ -22,10 +22,10 @@ from front.forms import CreerDepotForm
 
 
 # Create your views here.
-class AboutView(View):
+class AboutView(FormView):
+	template_name = 'creerDepot.html'
 	form_class = CreerDepotForm
 	initial = {'key': 'value'}
-	template_name = 'creerDepot.html'
 
 	def get(self, request, *args, **kwargs):
 		# return HttpResponse('Hello, World!')
