@@ -1,5 +1,4 @@
-{% if envoi %}Votre message a bien ete envoye !{% endif %}
-<form action="" method="post">{% csrf_token %}
+<form action="{{ action }}" method="post">{% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Submit" />
 </form>

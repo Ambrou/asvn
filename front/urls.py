@@ -1,11 +1,8 @@
 #-*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
-from front.views import AboutView
+from front.views import CreerDepotView
 
-# urlpatterns = patterns('front.views',
-    # url(r'^creerdepot/$', 'creerDepot'),
-# )
 
 urlpatterns = [
-    url(r'^creerdepot/$', AboutView.as_view()),
+    url(r'^creerdepot/$', CreerDepotView.as_view()),
 ]
