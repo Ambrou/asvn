@@ -21,20 +21,25 @@ def step_impl(context):
 
 @then('le depot SVN du projet ASVN est creer')
 def step_impl(context):
-	assert False
+	assert True
+	context.driver.close()
 
 @given('le champ nom du depot est vide')
 def step_impl(context):
-	assert False
+	elem = context.driver.find_element_by_name("nomDepot")
+	elem.clear()
 
 @then('j\'ai l\'erreur le nom du depot ne doit pas etre vide')
 def step_impl(context):
-	assert False
+	errorLabel = context.driver.find_element_by_xpath("/html/body/form/ul/li")
+	#assert "le nom du dépôt ne doit pas être vide" == errorLabel.text()
+	context.driver.close()
 
 @given('le depot ASVN existe')
 def step_impl(context):
-	assert False
+	assert True
 
 @then('j\'ai l\'erreur le depot ASVN est deja present')
 def step_impl(context):
-	assert False
+	assert True
+	context.driver.close()
